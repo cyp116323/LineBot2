@@ -1,0 +1,34 @@
+終端機環境設定
+
+1.
+npm init --yes
+2.
+開啟package.json，將type改為module
+3.
+環境套件安裝
+npm i dotenv linebot axios
+4.
+安裝開發用套件
+npm init @eslint/config@latest
+5.
+npm i -D eslint-config-prettier eslint-plugin-prettier prettier nodemon
+6.
+修改package.json
+"scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+7.
+修改eslint.config.js
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.node },
+  },
+  eslintPluginPrettierRecommended,
+])
+
